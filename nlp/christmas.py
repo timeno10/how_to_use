@@ -9,9 +9,8 @@ from matplotlib import font_manager, rc
 from tqdm.notebook import tqdm
 import nltk
 from konlpy.tag import Okt; t = Okt()
-from wordcloud import WordCloud, STOPWORDS
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 from PIL import Image
-from wordcloud import ImageColorGenerator
 
 
 class NaverWordCloud:
@@ -22,7 +21,6 @@ class NaverWordCloud:
         self.links = []
         self.present_candi_text = []
         self.html = 'http://kin.naver.com/search/list.nhn?query={key_word}&page={num}'
-        plt.rcParams['axes.unicode_minus'] = False
         
     def crawling(self):
         for n in tqdm(range(1,self.page+1)):
@@ -46,7 +44,7 @@ class NaverWordCloud:
             for each in search_result:
                 self.present_candi_text.append(each.get_text())
         
-        self.preprocessing()
+        return self.present_candi_text
 
     def preprocessing(self):    
         present_text = " ".join(self.present_candi_text)
@@ -59,12 +57,11 @@ class NaverWordCloud:
 
         self.ko = nltk.Text(tokens_ko, name=self.keyword)
         
-        self.wordcloud()
-        
     def wordcloud(self):
         f_path = "C:\Windows\Fonts\Malgun.ttf"
         font_name = font_manager.FontProperties(fname=f_path).get_name()
         rc('font', family=font_name)
+        plt.rcParams['axes.unicode_minus'] = False
 
         data = self.ko.vocab().most_common(200)
         mask = np.array(Image.open('heart.jpg'))
@@ -80,7 +77,11 @@ class NaverWordCloud:
         plt.imshow(wordcloud.recolor(color_func=image_colors),
                   interpolation='bilinear')
         plt.axis('off')
+        plt.savefig('word_cloud.png', dpi=300)
         plt.show()
         
-# naver = NaverWordCloud("크리스마스 선물")
-# naver.crawling()
+if __name__ == "__main__":
+    naver = NaverWordCloud("크리스마스 선물", 1)
+    naver.crawling()
+    naver.preprocessing()
+    naver.wordcloud()
