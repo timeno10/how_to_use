@@ -1,4 +1,4 @@
-# how_to_use
+# How To Use
 <img src="https://user-images.githubusercontent.com/71831714/105029600-e693b980-5a95-11eb-8a57-3f54bdd5d93b.jpg"></img>
 
 #### 1. Topic
