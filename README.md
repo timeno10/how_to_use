@@ -1,5 +1,5 @@
 # how_to_use
-<img src="https://user-images.githubusercontent.com/71831714/104867952-667e2e80-5985-11eb-8554-42e3952ae671.jpg"></img>
+<img src="https://user-images.githubusercontent.com/71831714/105029600-e693b980-5a95-11eb-8a57-3f54bdd5d93b.jpg"></img>
 
 #### 1. Topic
 - 데이터 사이언스 관련 학습 자료 및 응용 예제  
