@@ -8,6 +8,7 @@
 1. game (다양한 알고리즘 문제 풀이)
 2. crawling
 3. sql (데이터베이스 및 쿼리)
-4. nlp 
-5. deeplearning
+4. nlp (자연어 처리)
+5. deeplearning (딥러닝)
 6. statistics (numpy를 활용한 통계학 기초)
+7. etc (수업자료)
